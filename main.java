@@ -8,16 +8,21 @@ Main*/
 import java.io.File;
 import java.util.Scanner;
 import java.util.ArrayList; 
+import java.util.*; 
 public class main {
 	public static void main(String[] args) {
+		mapFactory Factory = new mapFactory();
 		Scanner scan = new Scanner(System.in);//instance a scanner that reads what the user writes when we ask them to
 		System.out.println("Bienvenido \\n Las impementaciones de mapas son las siguientes \n1. HashMap\n2. TreeMap\n3. LinkedHashMap\n Por favor ingrese el numero de la implementacion que usted desea ");
 		int option = scan.nextInt();
+		scan.nextLine(); 
 		String archive = "cards_desc.txt";
 		File fichero = new File(archive);
 		Scanner s = null;
-		ArrayList<String> keys = new ArrayList<String>();
-		ArrayList<String> values = new ArrayList<String>();
+		Map map = Factory.getMap(option); 
+		Hashtable datos = new Hashtable<String, String>(); 
+		//ArrayList<String> keys = new ArrayList<String>();
+		//ArrayList<String> values = new ArrayList<String>();
 		//Variable where we keep all of the String that we can find on the txt
 		String linea = "";
 		//we create a try that tries to read txt that catches if the txt does not exist
@@ -28,10 +33,11 @@ public class main {
 				//what the scanner reads it saves it on linea
 				linea = s.nextLine();
 				String[] dataArray = linea.split("\\|");
-				if((dataArray[1].equals("Monstruo"))||(dataArray[1].equals("Hechizo"))||(dataArray[1].equals("Trampa"))){
-					keys.add(dataArray[0]);
-					values.add(dataArray[1]);
-				}
+				datos.put(dataArray[0], dataArray[1]);
+				//if((dataArray[1].equals("Monstruo"))||(dataArray[1].equals("Hechizo"))||(dataArray[1].equals("Trampa"))){
+					//keys.add(dataArray[0]);
+					//values.add(dataArray[1]);
+				//}
 			}
 		}
 		//if the txt does not exist it prints the exception message
@@ -49,9 +55,27 @@ public class main {
 			}
 		}
 		
-		//BORRAR ESTO PRUEBA DE SPLIT 
-		for(int i =0;i<keys.size();i++){
-			System.out.println(keys.get(i)+" "+ values.get(i));
+		System.out.println(Ingrese la operación que desea realizar: \n1. Agregar una carta a la colección del usuario.\n2. Mostrar el tipo de una carta específica.\n3. Mostrar el nombre, tipo y cantidad de cada carta que el usuario tiene en su colección.\n4. Mostrar el nombre, tipo y cantidad de cada carta que el usuario tiene en su colección, ordenadas por tipo.\n5. Mostrar el nombre y tipo de todas las cartas existentes.6. Mostrar el nombre y tipo de todas las cartas existentes, ordenadas por tipo.);
+		int operacion = scan.nextint();
+		scan.nextLine();
+		if(operacion == 1){
+			System.out.println("Ingrese el nombre y el tipo de su carta nueva separada por un |: ");
+			String cartanueva = scan.nextLine(); 
+		}
+		else if(operacion == 2){
+			
+		}
+		else if(operacion == 3){
+			
+		}
+		else if(operacion == 4){
+			
+		}
+		else if(operacion == 5){
+			
+		}
+		else if(operacion == 6){
+			
 		}
 	}
 }
