@@ -7,17 +7,17 @@ mapFactory*/
 import java.util.*; 
 import java.util.concurrent.*; 
 
-public class mapFactory{
-	public Map getMap(int option){
+public class mapFactory<K,V>{
+	public Map<K,V> getMap(int option){
 		if(option==1){
-			return new HashMap<String,String>();
+			return new HashMap();
 		}
 		else{
 			if(option==2){
-				return new TreeMap<String,String>();
+				return new TreeMap();
 			}
 			else{
-				return new LinkedHashMap<String,String>();
+				return new LinkedHashMap();
 			}
 		}
 	}
