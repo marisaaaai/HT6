@@ -8,6 +8,7 @@ Main*/
 import java.io.File;
 import java.util.Scanner;
 import java.util.ArrayList; 
+import java.util.Collections;
 import java.util.*; 
 public class main {
 	
@@ -51,7 +52,7 @@ public class main {
 		}
 		int n=0;
 		while(n!=2){
-			System.out.println("Ingrese la operación que desea realizar: \n1. Agregar una carta a la colección del usuario.\n2. Mostrar el tipo de una carta específica.\n3. Mostrar el nombre, tipo y cantidad de cada carta que el usuario tiene en su colección.\n4. Mostrar el nombre, tipo y cantidad de cada carta que el usuario tiene en su colección, ordenadas por tipo.\n5. Mostrar el nombre y tipo de todas las cartas existentes.\n6. Mostrar el nombre y tipo de todas las cartas existentes, ordenadas por tipo.");
+			System.out.println("Ingrese la operacion que desea realizar: \n1. Agregar una carta a la coleccion del usuario.\n2. Mostrar el tipo de una carta especifica.\n3. Mostrar el nombre, tipo y cantidad de cada carta que el usuario tiene en su coleccion.\n4. Mostrar el nombre, tipo y cantidad de cada carta que el usuario tiene en su coleccion, ordenadas por tipo.\n5. Mostrar el nombre y tipo de todas las cartas existentes.\n6. Mostrar el nombre y tipo de todas las cartas existentes, ordenadas por tipo.");
 			int operacion = scan.nextInt();
 			scan.nextLine();
 			if(operacion == 1){
@@ -85,7 +86,12 @@ public class main {
 				System.out.println(mostrar);
 			}
 			else if(operacion == 6){
-				
+				ArrayList<String> mostrar = new ArrayList<String>(); 
+				for(Map.Entry m: datos.allEntries()){
+					mostrar.add("Nombre: " + m.getKey().toString() + " Tipo: " + m.getValue().toString());
+				}
+				Collections.sort(mostrar);
+				System.out.println(mostrar);	
 			}
 			else if(operacion == 5){
 				String mostrar = "";
@@ -96,7 +102,12 @@ public class main {
 			
 			}
 			else if(operacion == 4){
-
+				ArrayList<String> mostrar = new ArrayList<String>(); 
+				for(Map.Entry m: usuario.allEntries()){
+					mostrar.add("Nombre: " + m.getKey().toString() + " Tipo: " + m.getValue().toString());
+				}
+				Collections.sort(mostrar);
+				System.out.println(mostrar);	
 			}
 			else{
 				System.out.println("La opcion ingresada es invalida");
